@@ -18,14 +18,12 @@ import Admin from "./components/pages/admin/Admin";
 // Footer
 import Footer from "./components/Footer";
 
-// import SignIn from "./components/pages/signupPage/signIn";
-// import SignUp from "./components/pages/signupPage/signUp";
-
-import Navbar1 from "./components/Navbar1";
+// Navbar
 import Navbar from "./components/Navbar";
 
 function App() {
   const [user, setUser] = useState("user");
+
   return (
     <Router>
       <Switch>
@@ -42,8 +40,6 @@ function App() {
           <Route path="/interior-design/gallery" exact component={Gallery} />
           <Footer />
         </div>
-        {/* <Route exact path="/" exact component={SignIn} />
-            <Route exact path="/" exact component={SignUp} /> */}
       </Switch>
     </Router>
   );

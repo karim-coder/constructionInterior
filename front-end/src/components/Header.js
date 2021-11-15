@@ -58,15 +58,27 @@ const Form = styled.form`
     margin-top: 15%;
   }
 `;
-const Header = ({ title, text, bg }) => {
+const Header = ({ title, text, bg, type }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [city, setCity] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
+  var today = new Date();
+
+  var date1 =
+    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+
+  var time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  var date = date1 + " " + time;
+
+  var type = type;
   async function postUserInfo(e) {
     e.preventDefault();
+    setSubmitted(true);
     //post
     try {
       await axios.post("http://localhost:3000/userinfo", {
@@ -74,6 +86,8 @@ const Header = ({ title, text, bg }) => {
         email,
         number,
         city,
+        type,
+        date,
       });
     } catch (error) {
       console.log(error);
@@ -112,12 +126,14 @@ const Header = ({ title, text, bg }) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your Name"
+              type="name"
             />
             <Input
               value={number}
               onChange={(e) => setNumber(e.target.value)}
               placeholder="Your contact number"
-              type="number"
+              type="tel"
+              maxLength="10"
             />
             <Input
               value={email}

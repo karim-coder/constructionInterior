@@ -70,7 +70,7 @@ const Footer = () => {
       instagram="fluffy_cat_live"
       youtube="UCFt6TSF464J8K82xeA?"
       pinterest="fluffy_cats_collections"
-      copyright="black"
+      copyright="Marine"
       iconColor="white"
       backgroundColor={Color.primary}
       fontColor="white"

@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Orders = () => {
+  const [details, setDetails] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/data").then(function (response) {
+      setDetails(response.data);
+    });
+  }, [details]);
+
   return (
-    <div style={{ width: 1000, marginTop: 50 }}>
+    <div
+      style={{
+        paddingLeft: "20%",
+        paddingRight: "20%",
+        marginLeft: 0,
+        marginRight: 0,
+        marginTop: 50,
+      }}
+    >
       <table class="table table-striped table-dark">
         <thead>
           <tr>
@@ -12,34 +29,22 @@ const Orders = () => {
             <th scope="col">Email</th>
             <th scope="col">City</th>
             <th scope="col">Type</th>
+            <th scope="col">Date</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
+        {details.map((image, i) => (
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>{details[i].name}</td>
+              <td>{details[i].number}</td>
+              <td>{details[i].email}</td>
+              <td>{details[i].city}</td>
+              <td>{details[i].type}</td>
+              <td>{details[i].date}</td>
+            </tr>
+          </tbody>
+        ))}
       </table>
     </div>
   );

@@ -1,4 +1,59 @@
 import React from "react";
+import styled from "styled-components";
+
+const home = require("../../../assets/home2.png").default;
+const homeWhite = require("../../../assets/home-white.png").default;
+
+export const Div = styled.div`
+  text-align: center;
+  margin-top: 40px;
+
+  @media screen and (max-width: 810px) {
+    margin-top: 260px;
+  }
+`;
+export const FloorAddition = styled.div`
+  width: 600px;
+  height: 300px;
+  background-color: white;
+  margin: 10px;
+  margin-top: 30px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 0;
+`;
+
+export const Cost = styled.div`
+  background-color: ${(props) => props.color};
+  opacity: 0.6;
+  color: white;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  font-weight: bold;
+`;
+const Icon = styled.img`
+  height: 70px;
+  margin-top: 20px;
+`;
+const Card = styled.div`
+  height: 150px;
+  width: 180px;
+  text-align: center;
+  background-color: ${(props) => (props.color ? "#4a148c" : "white")};
+  color: ${(props) => (props.color ? "white" : "black")};
+  margin: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  cursor: pointer;
+`;
+
+export const Renovate = ({ color, onPress, icon, text }) => {
+  return (
+    <Card onClick={onPress} color={color}>
+      <Icon src={icon} />
+      <p style={{ fontSize: 15, marginTop: 10 }}>{text}</p>
+    </Card>
+  );
+};
 
 const Detail = ({ title, text }) => {
   return (

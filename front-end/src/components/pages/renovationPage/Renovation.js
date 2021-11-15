@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FullHome, Bathroom, Kitchen, Floor } from "./Renovatoin-Type";
-import Renovate from "./Renovate";
+import { FullHome, Bathroom, Kitchen, Floor, Renovate, Div, FloorAddition, Cost } from "./RenovationElements";
 import Color from "../../../constants/Color";
 import { Button, LargeButton } from "../../Button";
 import Header from "../../Header";
@@ -18,33 +17,6 @@ const floorWhite = require("../../../assets/floor-white.png").default;
 const plus = require("../../../assets/add.png").default;
 const minus = require("../../../assets/minus.png").default;
 
-const Div = styled.div`
-  text-align: center;
-  margin-top: 40px;
-
-  @media screen and (max-width: 810px) {
-    margin-top: 260px;
-  }
-`;
-const FloorAddition = styled.div`
-  width: 600px;
-  height: 300px;
-  background-color: white;
-  margin: 10px;
-  margin-top: 30px;
-  text-align: center;
-  border-radius: 10px;
-  padding: 0;
-`;
-
-const Cost = styled.div`
-  background-color: ${(props) => props.color};
-  opacity: 0.6;
-  color: white;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  font-weight: bold;
-`;
 
 const Renovation = () => {
   const [home, setHome] = useState(false);
@@ -79,6 +51,7 @@ const Renovation = () => {
       <Header
         title="Problem-Free Renovation with Qualified Experts"
         bg={cnst_bg}
+        type="Renovation"
       />
 
       <Div className="row justify-content-center">

@@ -48,16 +48,6 @@ router.post("/adminUser/signup", async (req, res) => {
   }
 });
 
-router.get("/userInfo", async (req, res) => {
-  try {
-    console.log(res.body);
-    const user = addminUser.find({});
-    res.send(user);
-  } catch (e) {
-    res.status(404).send(e);
-  }
-});
-
 // router.post('adminUser/signin', async(req, res)=>{
 //     console.log('hi')
 //     // const user = await addminUser.findByCredential(req.body.email, req.body.password)
@@ -66,8 +56,12 @@ router.get("/userInfo", async (req, res) => {
 //     // }
 // })
 
-router.get("/data", (req, res) => {
-  res.send("hello dear welcome to the data pages and will be in contact soon");
+router.get("/data", async (req, res) => {
+  try {
+    const user = await User.find({});
+    res.send(user);
+  } catch (e) {
+    res.send(e);
+  }
 });
-
 module.exports = router;

@@ -49,6 +49,7 @@ const Interior = () => {
         title="Creating excellent spaces"
         text="100% Hassle - Free and managed by us!"
         bg={id_bg}
+        type="Interior Design"
       />
       <Div className="row justify-content-center">
         <h4

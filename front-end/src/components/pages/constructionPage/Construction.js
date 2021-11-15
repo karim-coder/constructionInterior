@@ -13,6 +13,7 @@ const Construction = () => {
         title="We build quality Homes"
         text="100% Hassle-free and managed by us!"
         bg={cnst_bg}
+        type="Construction"
       />
       <Div>
         <h1>Our Packages</h1>
@@ -64,5 +65,4 @@ export default Construction;
 // git remote add origin https://github.com/karim-coder/construction.git
 // git push -u origin main
 
-// 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
-// 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
+// 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

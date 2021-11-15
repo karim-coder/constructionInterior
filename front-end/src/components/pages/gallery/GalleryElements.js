@@ -159,14 +159,6 @@ export const Image = (props) => {
                   height: "100%",
                 }}
               />
-
-              {/* <SimpleImageSlider
-                width={"100%"}
-                height={800}
-                images={b.filter((image) => image.type === imgUrl)}
-                showBullets={true}
-                showNavs={true}
-              /> */}
             </Modal>
           </div>
         )}
