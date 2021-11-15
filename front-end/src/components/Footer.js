@@ -4,8 +4,8 @@ import Color from "../constants/Color";
 
 const Footer = () => {
   const description =
-    "Marine construction and interior design is a website which you can see our planes for construction and Renovation and calculate the cost and see our interior designs.";
-  const title = "Marine";
+    "Construction and Interior website often become a great asset to the modern Construction Business. Still there are lots of people who don't have any idea regarding where they find best Construction, what is best interior and Renovation for there property. There is also trust issues, budget issues , quality issues people face when it comes for there Construction and Interior matters. With our website it will be lot more easier for the customers to have proper guidance. We provide best Construction, Interior Design and Renovation that suits them. We provide best workers and complete our work on given time period. We also provide all categories of work like standard, premium and luxury so that it would be easier for customers to select according to there budget.We also provide sample pics of our prevoius projects and feedback report so that it will be easier for customers to trust us. We provide contact info so that for any queries they directly contact company.";
+  const title = "Marine Construction and Interior";
   const columns = [
     {
       title: "Resources",
