@@ -1,0 +1,49 @@
+.zoom {
+  /* transition: transform 1.4s;
+  background-color: white;
+  color: #ea4492;
+  overflow: hidden;
+  position: relative; */
+  /* 
+  transform: rotateX(51deg) rotateY(0deg) rotateZ(43deg);
+  transform-style: preserve-3d;
+  border-radius: 32px;
+
+  box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(34, 33, 81, 0.01),
+    28px 28px 28px 0 rgba(34, 33, 81, 0.25);
+
+  transition: 0.4s ease-in-out transform, 0.4s ease-in-out box-shadow; */
+
+  transform: perspective(750px) translate3d(0px, 0px, -250px) rotateX(27deg)
+    scale(0.9, 0.9);
+  border-radius: 20px;
+  border: 5px solid #e6e6e6;
+  box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
+  transition: 0.4s ease-in-out transform;
+}
+.zoom:hover {
+  /* transform: translate3d(0px, -16px, 0px) rotateX(0deg) rotateZ(0deg);
+  box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(34, 33, 81, 0.01),
+    54px 54px 28px -10px rgba(34, 33, 81, 0.15); */
+
+  transform: translate3d(0px, 0px, -250px);
+}
+
+/* .zoom:hover { */
+/* -ms-transform: scale(3.5);
+  -webkit-transform: scale(3.5); */
+/* transform: scale(1.1); */
+/* transform: rotateX(360deg);
+  transform: rotateY(360deg);
+  transform: rotateZ(360deg); */
+/* transform: rotate3d(0, 1, 0, 90deg); */
+
+/* background-color: #7bd5f5;
+  color: white; */
+/* filter: brightness(70%); */
+/* animation: skew 4s; */
+/* transform: skew(20deg); */
+/* animation-direction: alternate; */
+/* } */
+
+/* colors : #47cacc  f9a66c f04393 4adede 7b7ff6 6096fd ff6f00*/
