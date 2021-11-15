@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import Color from "../constants/Color";
 
-const Main = styled.div`
+const Main = styled.form`
   height: 70vh;
   width: 100%;
   text-align: center;
