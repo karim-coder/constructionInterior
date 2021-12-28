@@ -32,30 +32,30 @@ const Footer = () => {
         },
       ],
     },
-    {
-      title: "Legal",
-      resources: [
-        {
-          name: "Privacy",
-          link: "/privacy",
-        },
-        {
-          name: "Terms",
-          link: "/terms",
-        },
-      ],
-    },
+    // {
+    //   title: "Legal",
+    //   resources: [
+    //     {
+    //       name: "Privacy",
+    //       link: "/privacy",
+    //     },
+    //     {
+    //       name: "Terms",
+    //       link: "/terms",
+    //     },
+    //   ],
+    // },
     {
       title: "Visit",
       resources: [
         {
           name: "Locations",
-          link: "/locations",
+          link: "https://www.google.com/maps/place/Vishwakarma+Institute+of+Information+Technology,+Survey+No.+2%2F3%2F4,+VIM+Private+Rd,+Kapil+Nagar,+Kondhwa,+Pune,+Maharashtra+411048/@18.4595642,73.8832398,17z/data=!4m13!1m7!3m6!1s0x3bc2eaf47d15ce33:0x8098faf1b47cc4ba!2sVishwakarma+Institute+of+Information+Technology,+Survey+No.+2%2F3%2F4,+VIM+Private+Rd,+Kapil+Nagar,+Kondhwa,+Pune,+Maharashtra+411048!3b1!8m2!3d18.4595591!4d73.8854285!3m4!1s0x3bc2eaf47d15ce33:0x8098faf1b47cc4ba!8m2!3d18.4595591!4d73.8854285",
         },
-        {
-          name: "Culture",
-          link: "/culture",
-        },
+        // {
+        //   name: "Culture",
+        //   link: "/culture",
+        // },
       ],
     },
   ];

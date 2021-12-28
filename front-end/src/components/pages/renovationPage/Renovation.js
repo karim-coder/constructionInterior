@@ -1,8 +1,16 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import { FullHome, Bathroom, Kitchen, Floor, Renovate, Div, FloorAddition, Cost } from "./RenovationElements";
+import {
+  FullHome,
+  Bathroom,
+  Kitchen,
+  Floor,
+  Renovate,
+  Div,
+  FloorAddition,
+  Cost,
+} from "./RenovationElements";
 import Color from "../../../constants/Color";
-import { Button, LargeButton } from "../../Button";
+import { LargeButton } from "../../Button";
 import Header from "../../Header";
 
 const cnst_bg = require("../../../assets/ren.jpeg").default;
@@ -16,7 +24,6 @@ const floor1 = require("../../../assets/floor.png").default;
 const floorWhite = require("../../../assets/floor-white.png").default;
 const plus = require("../../../assets/add.png").default;
 const minus = require("../../../assets/minus.png").default;
-
 
 const Renovation = () => {
   const [home, setHome] = useState(false);

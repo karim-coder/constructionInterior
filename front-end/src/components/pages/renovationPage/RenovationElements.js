@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-const home = require("../../../assets/home2.png").default;
-const homeWhite = require("../../../assets/home-white.png").default;
+import Color from "../../../constants/Color";
 
 export const Div = styled.div`
   text-align: center;
@@ -39,7 +37,7 @@ const Card = styled.div`
   height: 150px;
   width: 180px;
   text-align: center;
-  background-color: ${(props) => (props.color ? "#4a148c" : "white")};
+  background-color: ${(props) => (props.color ? Color.primary : "white")};
   color: ${(props) => (props.color ? "white" : "black")};
   margin: 30px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;

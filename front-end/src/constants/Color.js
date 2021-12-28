@@ -1,3 +1,4 @@
-export default {
-  primary: "#4a148c",
+const Color = {
+  primary: "grey",
 };
+export default Color;

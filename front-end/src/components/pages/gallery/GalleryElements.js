@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import styled from "styled-components";
-import { ImageData } from "./imageData";
-import SimpleImageSlider from "react-simple-image-slider";
 
 export const SmallImage = styled.img`
   width: ${(props) => (props.press ? 1000 : 300)}px;
@@ -77,8 +76,21 @@ export const Modal = ({ handleClose, show, children }) => {
 export const Image = (props) => {
   const [modal, setModal] = useState(false);
   const [imgUrl, setImgUrl] = useState("");
+  const [interiorData, setInteriorData] = useState([]);
 
-  const a = ImageData.filter((image) => image.theme === props.theme);
+  useEffect(() => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    axios.get("http://localhost:3000/interior").then(function (response) {
+      setInteriorData(response.data);
+    });
+  }, []);
+
+  console.log(interiorData);
+  const a = interiorData.filter((image) => image.theme === props.theme);
   const b = a.filter((image) => image.type === props.type);
 
   const modalClose = () => {

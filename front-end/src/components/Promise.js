@@ -5,7 +5,7 @@ import "./style.css";
 const Promise = (props) => {
   return (
     <div className="zoom row justify-content-center" style={styles.card}>
-      <img className="col" style={styles.icon} src={props.icon} />
+      <img className="col" style={styles.icon} src={props.icon} alt="" />
 
       <p
         className=" row"

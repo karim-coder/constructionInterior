@@ -1,8 +1,9 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Provider as AuthProvider } from "./context/AuthContext";
 
 // Scroll to top
 import ScrollToTop from "./components/ScrollToTop";
@@ -14,7 +15,9 @@ import Interior from "./components/pages/interiorPage/Interior";
 import Renovation from "./components/pages/renovationPage/Renovation";
 import About from "./components/pages/aboutPage/About";
 import Gallery from "./components/pages/gallery/Gallery";
-import Admin from "./components/pages/admin/Admin";
+import Login from "./components/pages/admin/Login";
+// import Admin from "./components/pages/admin/Admin";
+import Orders from "./components/pages/admin/Orders";
 // Footer
 import Footer from "./components/Footer";
 
@@ -22,13 +25,11 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [user, setUser] = useState("user");
-
   return (
     <Router>
       <Switch>
-        <Route path="/admin" exact component={Admin} />
-        <Route path="/login/login" exact component={Admin} />
+        <Route path="/admin" exact component={Login} />
+        <Route path="/admin/orders" exact component={Orders} />
         <div>
           <ScrollToTop />
           <Navbar />
@@ -45,4 +46,10 @@ function App() {
   );
 }
 
-export default App;
+export default () => {
+  return (
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  );
+};

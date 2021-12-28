@@ -1,68 +1,54 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 
-const userSchema = mongoose.Schema({
-  username: {
+const userSchema = new mongoose.Schema({
+  userName: {
+    unique: true,
     type: String,
-  },
-  email: {
-    type: String,
-  },
-  number: {
-    type: Number,
+    required: true,
   },
   password: {
     type: String,
+    required: true,
   },
-  tokens: [
-    {
-      token: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
 });
 
-userSchema.methods.getPublicProfile = function () {
+userSchema.pre("save", function (next) {
   const user = this;
-  const userObject = user.toObject();
-  delete userObject.password;
-  delete userObject.tokens;
-
-  return userObject;
-};
-
-userSchema.methods.generateAuthToken = async function () {
-  const user = this;
-  const token = jwt.sign({ _id: user._id.toString() }, "secret");
-  user.tokens = user.tokens.concat({ token });
-
-  await user.save();
-  return token;
-};
-
-userSchema.statics.findByCredential = async (email, password) => {
-  const user = await addminUser.findOne({ email });
-  if (!user) {
-    throw new Error("Unable to log in!!");
+  if (!user.isModified("password")) {
+    return next();
   }
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) {
-    throw new Error("Unable to log in!");
-  }
-  return user;
-};
 
-userSchema.pre("save", async function (next) {
-  const user = this;
-  if (user.isModified("password")) {
-    user.password = await bcrypt.hash(user.password, 10);
-  }
-  next();
+  bcrypt.genSalt(10, (err, salt) => {
+    if (err) {
+      return next(err);
+    }
+    bcrypt.hash(user.password, salt, (err, hash) => {
+      if (err) {
+        return next(err);
+      }
+      user.password = hash;
+      next();
+    });
+  });
 });
 
-const addminUser = mongoose.model("AdminUser", userSchema);
+userSchema.methods.comparePassword = function (candidatePassword) {
+  const user = this;
 
-module.exports = addminUser;
+  return new Promise((resolve, reject) => {
+    bcrypt.compare(candidatePassword, user.password, (err, isMatch) => {
+      if (err) {
+        return reject(err);
+      }
+
+      if (!isMatch) {
+        return reject(false);
+      }
+
+      resolve(true);
+    });
+  });
+};
+
+mongoose.model("adminUser", userSchema);

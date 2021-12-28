@@ -32,12 +32,17 @@ export class ConstCostEstimator extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDropdownChange = this.handleDropdownChange.bind(this);
     this.handleFloorDropdownChange = this.handleFloorDropdownChange.bind(this);
+    this.handlePlotDropdownChange = this.handlePlotDropdownChange.bind(this);
   }
   handleDropdownChange(e) {
     this.setState({ selectValue: e.target.value });
   }
   handleFloorDropdownChange(e) {
     this.setState({ selectFloor: e.target.value });
+  }
+  handlePlotDropdownChange(e) {
+    this.setState({ cost: parseInt(e.target.value) });
+    console.log(this.state.cost);
   }
   toggleChange = () => {
     this.setState({
@@ -133,6 +138,7 @@ export class ConstCostEstimator extends React.Component {
               onChange={this.handleChange}
             />
             <label>Site Area</label>
+            {console.log(this.state.cost)}
 
             <br />
             <div
@@ -141,6 +147,7 @@ export class ConstCostEstimator extends React.Component {
             >
               {this.state.size === "Plot Size" && (
                 <select
+                  onChange={this.handlePlotDropdownChange}
                   style={{
                     width: 210,
                     height: 30,
@@ -150,9 +157,9 @@ export class ConstCostEstimator extends React.Component {
                   }}
                 >
                   <option selected>Select</option>
-                  <option value="1">30 X 40</option>
-                  <option value="2">30 X 50</option>
-                  <option value="3">40 X 60</option>
+                  <option value="1200">30 X 40</option>
+                  <option value="1500">30 X 50</option>
+                  <option value="2400">40 X 60</option>
                 </select>
               )}
               {this.state.size === "Site Area" && (
@@ -281,7 +288,6 @@ export class ConstCostEstimator extends React.Component {
             />
           </div>
         )}
-        {console.log(parseInt(this.state.selectValue))}
       </>
     );
   }

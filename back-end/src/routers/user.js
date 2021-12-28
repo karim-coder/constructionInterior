@@ -1,7 +1,17 @@
 const express = require("express");
 const User = require("../models/userInfo");
 const addminUser = require("../models/adminUser");
+const Interior = require("../models/interiorData");
 const router = express.Router();
+
+//
+
+// router.post("/signin", (req, res) => {
+//   console.log(req.body);
+//   res.send("You mad a ");
+// });
+
+//
 
 router.post("/userinfo", async (req, res) => {
   try {
@@ -9,7 +19,23 @@ router.post("/userinfo", async (req, res) => {
     await user
       .save()
       .then(() => {
-        res.send("Thank you for respons");
+        res.send("Thank you for response");
+      })
+      .catch((e) => {
+        res.send(e);
+      });
+  } catch (e) {
+    res.status(404).send(e);
+  }
+});
+
+router.post("/interior-data", async (req, res) => {
+  try {
+    const interior = new Interior(req.body);
+    await interior
+      .save()
+      .then(() => {
+        res.send("Thank you for response");
       })
       .catch((e) => {
         res.send(e);
@@ -22,7 +48,7 @@ router.post("/userinfo", async (req, res) => {
 router.post("/adminUser/signin", async (req, res) => {
   try {
     const user = await addminUser.findByCredential(
-      req.body.email,
+      req.body.userName,
       req.body.password
     );
     const token = await user.generateAuthToken();
@@ -48,18 +74,18 @@ router.post("/adminUser/signup", async (req, res) => {
   }
 });
 
-// router.post('adminUser/signin', async(req, res)=>{
-//     console.log('hi')
-//     // const user = await addminUser.findByCredential(req.body.email, req.body.password)
-//     // if(user){
-//     //     res.send('hello')
-//     // }
-// })
-
 router.get("/data", async (req, res) => {
   try {
     const user = await User.find({});
     res.send(user);
+  } catch (e) {
+    res.send(e);
+  }
+});
+router.get("/interior-data", async (req, res) => {
+  try {
+    const interior = await Interior.find({});
+    res.send(interior);
   } catch (e) {
     res.send(e);
   }

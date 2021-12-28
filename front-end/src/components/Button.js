@@ -14,7 +14,7 @@ export const Button = (props) => {
         backgroundColor: props.type ? props.color : "white",
         color: props.type ? "white" : props.color,
         textAlign: "center",
-        justifyContent: "center",
+        // justifyContent: "center",
         fontSize: 18,
         paddingTop: 5,
         borderRadius: 5,

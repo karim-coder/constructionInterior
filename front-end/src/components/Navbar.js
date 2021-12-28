@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
+import Color from "../constants/Color";
 
 const NavLink = styled(Link)`
   color: ${(props) => (props.decoration ? "white" : "red")};
@@ -17,20 +18,13 @@ const NavLink = styled(Link)`
   }
 `;
 
-const Nav = styled.nav`
-  background: #4a148c;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-`;
-
 const NavBar = () => {
   const [home, setHome] = useState(true);
   const [cons, setConst] = useState(false);
   const [interior, setInterior] = useState(false);
   const [renovation, setRenovation] = useState(false);
   const [about, setAbout] = useState(false);
-  const [gallery, setGallery] = useState(false);
+  // const [gallery, setGallery] = useState(false);
 
   const MouseOver = (event) => {
     // event.target.style.borderBottom = "4px solid rgba(256, 256, 256, 0.5)";
@@ -75,18 +69,11 @@ const NavBar = () => {
     setRenovation(false);
     setAbout(true);
   };
-  const Gallery = () => {
-    setConst(false);
-    setHome(false);
-    setInterior(false);
-    setGallery(true);
-    setRenovation(false);
-    setAbout(false);
-  };
+
   return (
     <nav
       className="navbar navbar-expand-lg  sticky-top navbar-dark"
-      style={{ width: "100%", background: "#4a148c" }}
+      style={{ width: "100%", background: Color.primary }}
     >
       <div className="container" style={{ textAlign: "center" }}>
         <NavLink
@@ -158,17 +145,6 @@ const NavBar = () => {
                 decoration={about ? "underline" : "none"}
               >
                 <h5 style={{ marginRight: 20, marginLeft: 20 }}>About us</h5>
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="/interior-design/gallery"
-                onMouseOver={MouseOver}
-                onMouseOut={MouseOut}
-                onClick={About}
-                decoration={gallery ? "underline" : "none"}
-              >
-                {/* <h5 style={{ marginRight: 20, marginLeft: 20 }}>Gallery</h5> */}
               </NavLink>
             </li>
           </ul>

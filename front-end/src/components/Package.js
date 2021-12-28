@@ -56,9 +56,4 @@ const Package = (props) => {
   );
 };
 
-const styles = {
-  checkMark: {
-    margin: 5,
-  },
-};
 export default Package;
