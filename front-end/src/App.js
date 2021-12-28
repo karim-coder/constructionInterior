@@ -16,7 +16,6 @@ import Renovation from "./components/pages/renovationPage/Renovation";
 import About from "./components/pages/aboutPage/About";
 import Gallery from "./components/pages/gallery/Gallery";
 import Login from "./components/pages/admin/Login";
-// import Admin from "./components/pages/admin/Admin";
 import Orders from "./components/pages/admin/Orders";
 // Footer
 import Footer from "./components/Footer";
